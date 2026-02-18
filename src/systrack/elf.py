@@ -79,7 +79,8 @@ class ELF:
 		assert self.file.seek(0x12) == 0x12
 		self.e_machine = unpack(unpack_endian + 'H', self.file.read(2))[0]
 
-		assert self.file.seek(0x24) == 0x24
+		e_flags_offset = 0x24 if self.bits32 else 0x30
+		assert self.file.seek(e_flags_offset) == e_flags_offset
 		self.e_flags = unpack(unpack_endian + 'L', self.file.read(4))[0]
 
 	@property
