@@ -12,19 +12,21 @@ from .utils import ensure_command
 
 # Only EM_* macros relevant for vmlinux ELFs
 class E_MACHINE(IntEnum):
-	EM_386     = 3   # x86
-	EM_MIPS    = 8   # MIPS R3000 (32 or 64 bit)
-	EM_PPC     = 20  # PowerPC 32-bit
-	EM_PPC64   = 21	 # PowerPC 64-bit
-	EM_S390    = 22  # IBM S/390
-	EM_ARM     = 40  # ARM 32-bit
-	EM_X86_64  = 62  # x86-64
-	EM_AARCH64 = 183 # ARM 64-bit
-	EM_RISCV   = 243 # RISC-V
+	EM_386       = 3   # x86
+	EM_MIPS      = 8   # MIPS R3000 (32 or 64 bit)
+	EM_PPC       = 20  # PowerPC 32-bit
+	EM_PPC64     = 21	 # PowerPC 64-bit
+	EM_S390      = 22  # IBM S/390
+	EM_ARM       = 40  # ARM 32-bit
+	EM_X86_64    = 62  # x86-64
+	EM_AARCH64   = 183 # ARM 64-bit
+	EM_RISCV     = 243 # RISC-V
+	EM_LOONGARCH = 258 # LoongArch
 
 # Only EF_* macros that we actually use
 class E_FLAGS(IntEnum):
 	EF_ARM_EABI_MASK = 0xff000000
+	EF_LOONGARCH_ABI_MASK = 0x000000c0
 
 Section = namedtuple('Section', ('name', 'vaddr', 'off', 'size'))
 _Symbol = namedtuple('_Symbol', ('vaddr', 'real_vaddr', 'size', 'type', 'name'))
